@@ -93,15 +93,16 @@ const Who = () => {
           </Canvas>
         </Left>
         <Right>
-          <Title>Think outside the square space</Title>
+          <Title>Completed an intensive 13-week coding boot camp</Title>
           <WhatWeDo>
             <Line src="./img/line.png" />
-            <Subtitle>Who we are </Subtitle>
+            <Subtitle>At Northcoders </Subtitle>
           </WhatWeDo>
           <Desc>
-            we enjoy creating delightful, human-centre digital experience
+            I love solving problems through web development, creating efficient
+            and user-friendly solutions that enhance the digital experience.
           </Desc>
-          <Button>See our work</Button>
+          <Button>See My work</Button>
         </Right>
       </Container>
     </Section>

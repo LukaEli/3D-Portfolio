@@ -76,15 +76,15 @@ const Navbar = () => {
           <Logo src="./img/logo.png" />
           <List>
             <ListItem>Home</ListItem>
-            <ListItem>Studio</ListItem>
-            <ListItem>Works</ListItem>
+            <ListItem>Skills</ListItem>
+            <ListItem>Projects</ListItem>
             <ListItem>Contact</ListItem>
           </List>
         </Links>
-        <Icons>
+        {/* <Icons>
           <Icon src="./img/search.png" />
           <Button>Hire Now</Button>
-        </Icons>
+        </Icons> */}
       </Container>
     </Section>
   );

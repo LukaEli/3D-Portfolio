@@ -1,16 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Development from "./Development";
-import ProductDesign from "./ProductDesign";
-import WebDesign from "./WebDesign";
+import Development from "./NCNEWS";
+import ProductDesign from "./Limoney";
+import WebDesign from "./YoutubeClone";
 
-const data = [
-  "Web Design",
-  "Development",
-  "Illustration",
-  "Product Design",
-  "Social Media",
-];
+const data = ["Youtube Clone", "NC NEWS", "Limoney"];
 
 const Section = styled.div`
   height: 100vh;
@@ -113,9 +107,9 @@ const Works = () => {
           </List>
         </Left>
         <Right>
-          {work === "Web Design" ? (
+          {work === "Youtube Clone" ? (
             <WebDesign />
-          ) : work === "Development" ? (
+          ) : work === "NC NEWS" ? (
             <Development />
           ) : (
             <ProductDesign />

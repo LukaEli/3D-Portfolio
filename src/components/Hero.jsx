@@ -128,14 +128,12 @@ const Hero = () => {
       <Navbar />
       <Container>
         <Left>
-          <Title>Think, Make. Solve.</Title>
+          <Title>Hello, I'm Luka </Title>
           <WhatWeDo>
             <Line src="./img/line.png" />
-            <Subtitle>What we do</Subtitle>
+            <Subtitle>Passionate Software Developer</Subtitle>
           </WhatWeDo>
-          <Desc>
-            we enjoy creating delightful, human-centre digital experience
-          </Desc>
+          <Desc> Specializing in JavaScript</Desc>
           <Button>Learn More</Button>
         </Left>
         <Right>

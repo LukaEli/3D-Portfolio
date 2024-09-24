@@ -1,7 +1,11 @@
-import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
+import React, { useState } from "react";
+import emailjs from "emailjs-com";
+import DOMPurify from "dompurify";
 import styled from "styled-components";
-import Map from "./Map";
+import Map from "./Map"; // Assuming you have a Map component
+
+// Initialize EmailJS with the public key from environment variables
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 const Section = styled.div`
   height: 100vh;
@@ -75,47 +79,123 @@ const Right = styled.div`
 `;
 
 const Contact = () => {
-  const ref = useRef();
-  const [success, setSuccess] = useState(null);
+  const initialState = { name: "", email: "", message: "" };
+  const [formData, setFormData] = useState(initialState);
+  const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSent, setIsSent] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const validateErrors = validateForm();
+    if (Object.keys(validateErrors).length > 0) {
+      setErrors(validateErrors);
+      return;
+    }
+
+    setIsLoading(true);
+
+    const { name, email, message } = formData;
+    const sanitizedData = {
+      name: DOMPurify.sanitize(name),
+      email: DOMPurify.sanitize(email),
+      message: DOMPurify.sanitize(message),
+    };
+
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 
     emailjs
-      .sendForm("service_kt22118", "template_4ojjzjw", ref.current, {
-        publicKey: "ExpE6RPgY2m267fo7",
+      .send(serviceID, templateID, sanitizedData)
+      .then((response) => {
+        console.log("Email sent successfully!", response.text);
+        setFormData(initialState);
+        setErrors({});
+        setIsSent(true);
       })
-      .then(
-        (result) => {
-          console.log(result.text);
-          setSuccess(true);
-        },
-        (error) => {
-          console.log("FAILED...", error.text);
-          setSuccess(false);
-        }
-      );
+      .catch((error) => {
+        console.error("Email sending failed", error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
+
+  const validateForm = () => {
+    const { name, email, message } = formData;
+    const errors = {};
+
+    if (!name.trim()) errors.name = "Name is required";
+    if (!email.trim()) errors.email = "Email is required";
+    else if (!isValidEmail(email)) errors.email = "Invalid email format";
+    if (!message.trim()) errors.message = "Message is required";
+
+    return errors;
+  };
+
+  const isValidEmail = (value) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(value);
+  };
+
   return (
     <Section>
       <Container>
         <Left>
-          <Form ref={ref} onSubmit={handleSubmit}>
-            <Title>Contact Us</Title>
-            <Input placeholder="Name" name="name" />
-            <Input placeholder="Email" name="email" />
-            <TextArea
-              placeholder="Write your message"
-              name="message"
-              rows={10}
-            />
-            <Button type="submit">Send</Button>
-            {success &&
-              "Your message has been sent. I'll get back to you soon :)"}
-          </Form>
+          {!isSent && (
+            <Form onSubmit={handleSubmit}>
+              <Title>Contact Me</Title>
+              <Input
+                placeholder="Name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className={errors.name ? "error" : ""}
+                disabled={isLoading}
+              />
+              {errors.name && (
+                <span className="error-message">{errors.name}</span>
+              )}
+              <Input
+                placeholder="Email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className={errors.email ? "error" : ""}
+                disabled={isLoading}
+              />
+              {errors.email && (
+                <span className="error-message">{errors.email}</span>
+              )}
+              <TextArea
+                placeholder="Write your message"
+                name="message"
+                rows={10}
+                value={formData.message}
+                onChange={handleChange}
+                className={errors.message ? "error" : ""}
+                disabled={isLoading}
+              />
+              {errors.message && (
+                <span className="error-message">{errors.message}</span>
+              )}
+              <Button type="submit" disabled={isLoading}>
+                {isLoading ? "SENDING..." : "SEND"}
+              </Button>
+            </Form>
+          )}
+          {isSent && "Your message has been sent. I'll get back to you soon :)"}
         </Left>
         <Right>
-          <Map></Map>
+          <Map />
         </Right>
       </Container>
     </Section>
