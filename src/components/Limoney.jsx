@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const Description = styled.div`
   width: 200px;
-  height: 170px;
+  height: 180px;
   padding: 20px;
   background-color: white;
   border-radius: 10px;

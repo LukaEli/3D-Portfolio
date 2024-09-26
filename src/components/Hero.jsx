@@ -134,7 +134,9 @@ const Hero = () => {
             <Subtitle>Passionate Software Developer</Subtitle>
           </WhatWeDo>
           <Desc> Specializing in JavaScript</Desc>
-          <Button>Learn More</Button>
+          <a href="#who">
+            <Button>Learn More</Button>
+          </a>
         </Left>
         <Right>
           <Canvas>

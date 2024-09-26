@@ -102,7 +102,9 @@ const Who = () => {
             I love solving problems through web development, creating efficient
             and user-friendly solutions that enhance the digital experience.
           </Desc>
-          <Button>See My work</Button>
+          <a href="#works">
+            <Button>See My work</Button>
+          </a>
         </Right>
       </Container>
     </Section>

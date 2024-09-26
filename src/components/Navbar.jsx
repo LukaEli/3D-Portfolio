@@ -75,16 +75,40 @@ const Navbar = () => {
         <Links>
           <Logo src="./img/logo.png" />
           <List>
-            <ListItem>Home</ListItem>
-            <ListItem>Skills</ListItem>
-            <ListItem>Projects</ListItem>
-            <ListItem>Contact</ListItem>
+            <ListItem>
+              <a
+                href="#hero"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                Home
+              </a>
+            </ListItem>
+            <ListItem>
+              <a
+                href="#who"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                Skills
+              </a>
+            </ListItem>
+            <ListItem>
+              <a
+                href="#works"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                Projects
+              </a>
+            </ListItem>
+            <ListItem>
+              <a
+                href="#contact"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                Contact
+              </a>
+            </ListItem>
           </List>
         </Links>
-        {/* <Icons>
-          <Icon src="./img/search.png" />
-          <Button>Hire Now</Button>
-        </Icons> */}
       </Container>
     </Section>
   );
