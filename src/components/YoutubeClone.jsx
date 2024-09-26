@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const Description = styled.div`
   width: 200px;
-  height: 170px;
+  height: 200px;
   padding: 20px;
   background-color: white;
   border-radius: 10px;
@@ -62,14 +62,14 @@ const YoutubeClone = () => {
       <Description>
         YouTube clone built using React, designed to replicate the core
         functionalities of the popular video-sharing platform.
-        <p></p>
         <a href="https://github.com/LukaEli/Youtube-Clone" target="_blank">
           <Button>Github</Button>
         </a>
-        <p></p>
-        <a href="https://test1532.netlify.app/" target="_blank">
-          <Button>Demo</Button>
-        </a>
+        <p>
+          <a href="https://test1532.netlify.app/" target="_blank">
+            <Button>Demo</Button>
+          </a>
+        </p>
       </Description>
     </>
   );

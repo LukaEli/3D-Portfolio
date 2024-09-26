@@ -20,10 +20,18 @@ const Container = styled.div`
 function App() {
   return (
     <Container>
-      <Hero />
-      <Who />
-      <Works />
-      <Contact />
+      <section id="hero">
+        <Hero />
+      </section>
+      <section id="who">
+        <Who />
+      </section>
+      <section id="works">
+        <Works />
+      </section>
+      <section id="contact">
+        <Contact />
+      </section>
     </Container>
   );
 }
