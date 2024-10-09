@@ -60,7 +60,7 @@ const Limoney = () => {
 
         <OrbitControls enableZoom={false}></OrbitControls>
       </Canvas>
-      <Description>
+      {/* <Description>
         Teamed up to plan and develop a full-stack application aimed at teaching
         essential skills such as budgeting and money management.
         <p></p>
@@ -71,7 +71,7 @@ const Limoney = () => {
         <a href="https://github.com/joao-ponte/limoney" target="_blank">
           <Button>Demo</Button>
         </a>
-      </Description>
+      </Description> */}
     </>
   );
 };

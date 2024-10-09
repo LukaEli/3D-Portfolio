@@ -59,7 +59,7 @@ const YoutubeClone = () => {
         </Stage>
         <OrbitControls enableZoom={false}></OrbitControls>
       </Canvas>
-      <Description>
+      {/* <Description>
         YouTube clone built using React, designed to replicate the core
         functionalities of the popular video-sharing platform.
         <a href="https://github.com/LukaEli/Youtube-Clone" target="_blank">
@@ -70,7 +70,7 @@ const YoutubeClone = () => {
             <Button>Demo</Button>
           </a>
         </p>
-      </Description>
+      </Description> */}
     </>
   );
 };
