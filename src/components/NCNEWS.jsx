@@ -60,7 +60,7 @@ const NCNEWS = () => {
 
         <OrbitControls enableZoom={false}></OrbitControls>
       </Canvas>
-      <Description>
+      {/* <Description>
         Successfully built on my API with my front-end development project. This
         application allows users to filter through a database of articles and
         allows visitors to vote and comment on articles.
@@ -72,7 +72,7 @@ const NCNEWS = () => {
         <a href="https://brilliant-d6ad17.netlify.app/" target="_blank">
           <Button>Demo</Button>
         </a>
-      </Description>
+      </Description> */}
     </>
   );
 };
