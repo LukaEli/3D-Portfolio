@@ -3,9 +3,7 @@ import styled from "styled-components";
 import Development from "./NCNEWS";
 import ProductDesign from "./Limoney";
 import WebDesign from "./YoutubeClone";
-import { color } from "three/webgpu";
 
-// Project data with titles and descriptions
 const data = [
   {
     title: "Youtube Clone",
@@ -120,18 +118,18 @@ const Description = styled.div`
 `;
 
 const Button = styled.button`
-  margin: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
+  background-color: #da4ea2;
   color: white;
-  background-color: #007bff;
+  font-weight: 500;
+  width: 100px;
+  padding: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-
-  &:hover {
+  margin: 10px;
+  /* &:hover {
     background-color: #0056b3;
-  }
+  } */
 `;
 
 const Right = styled.div`
@@ -139,6 +137,25 @@ const Right = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+const StyledParagraph = styled.p`
+  font-size: 24px;
+  color: lightgray;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 15px;
+  }
+`;
+
+const StyledLink = styled.a`
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const Works = () => {
@@ -164,68 +181,74 @@ const Works = () => {
           <Description>
             {selectedTitle === "Youtube Clone" ? (
               <>
-                YouTube clone built using React, designed to replicate the core
-                functionalities of the popular video-sharing platform.
-                <a
+                <StyledParagraph>
+                  YouTube clone built using React, designed to replicate the
+                  core functionalities of the popular video-sharing platform.
+                </StyledParagraph>
+                <StyledLink
                   href="https://github.com/LukaEli/Youtube-Clone"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <Button>Github</Button>
-                </a>
-                <p></p>
-                <a
+                </StyledLink>
+
+                <StyledLink
                   href="https://test1532.netlify.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <Button>Demo</Button>
-                </a>
+                </StyledLink>
               </>
             ) : selectedTitle === "NC NEWS" ? (
               <>
-                Successfully built on my API with my front-end development
-                project. This application allows users to filter through a
-                database of articles and allows visitors to vote and comment on
-                articles.
-                <p></p>
-                <a
+                <StyledParagraph>
+                  Successfully built on my API with my front-end development
+                  project. This application allows users to filter through a
+                  database of articles and allows visitors to vote and comment
+                  on articles.
+                </StyledParagraph>
+
+                <StyledLink
                   href="https://github.com/LukaEli/nc_news"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <Button>Github</Button>
-                </a>
-                <p></p>
-                <a
+                </StyledLink>
+
+                <StyledLink
                   href="https://brilliant-d6ad17.netlify.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <Button>Demo</Button>
-                </a>
+                </StyledLink>
               </>
             ) : (
               <>
-                Teamed up to plan and develop a full-stack application aimed at
-                teaching essential skills such as budgeting and money
-                management.
-                <p></p>
-                <a
+                <StyledParagraph>
+                  Teamed up to plan and develop a full-stack application aimed
+                  at teaching essential skills such as budgeting and money
+                  management.
+                </StyledParagraph>
+
+                <StyledLink
                   href="https://github.com/joao-ponte/limoney"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <Button>Github</Button>
-                </a>
-                <p></p>
-                <a
+                </StyledLink>
+
+                <StyledLink
                   href="https://github.com/joao-ponte/limoney"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <Button>Demo</Button>
-                </a>
+                </StyledLink>
               </>
             )}
           </Description>
